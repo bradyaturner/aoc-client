@@ -16,16 +16,12 @@ class AOCClient
   BASE_URL = "adventofcode.com"
   include DateHelper
 
-  def initialize(app_name, version)
+  def initialize(app_name, version, secrets_data)
     @app_name = app_name
     @version = version
-    @secrets = load_private_data
+    @secrets = secrets_data
     @http = Net::HTTP.new(BASE_URL, 443)
     @http.use_ssl = true
-  end
-
-  def load_private_data
-    JSON.parse File.read("./aoc_data.json")
   end
 
   def authenticated_request(path)
