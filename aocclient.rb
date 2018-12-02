@@ -1,3 +1,5 @@
+require 'date'
+
 module DateHelper
   def current_date
     DateTime.now
@@ -11,6 +13,8 @@ module DateHelper
     padded ? current_date.strftime("%d") : current_date.strftime("%-d")
   end
 end
+
+require 'net/http'
 
 class AOCClient
   BASE_URL = "adventofcode.com"
